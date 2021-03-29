@@ -28,7 +28,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Email:</strong>
-                    <input type="email" name="email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" class="mt-2 form-control" placeholder="Email">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
