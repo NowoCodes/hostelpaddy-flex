@@ -23,6 +23,13 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-use App\Http\Controllers\EmailCollectionController;
+use App\Http\Controllers\AdminEmailCollection;
+use App\Http\Controllers\UserEmailCollection;
 
-Route::resource('emails', EmailCollectionController::class);
+Route::resource('emails', AdminEmailCollection::class);
+
+Route::get('/clientmail', [UserEmailCollection::class, 'create'])
+    ->name('clientmail');
+
+Route::post('/clientmail', [UserEmailCollection::class, 'store'])
+    ->name('thanks');
