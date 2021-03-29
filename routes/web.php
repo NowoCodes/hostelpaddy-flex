@@ -2,7 +2,6 @@
 
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,12 +21,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/testing', function () {
-	return view('testing');
+    return view('testing');
 });
 
-Route::get('/email', function () {
-    return view('email');
-});
+Route::get('/email', [EmailCollectionController::class, 'create'])
+    ->name('email_collection');
+
+Route::post('/create', [EmailCollectionController::class, 'store']);
+// ->name('email.submit');
+
+use App\Http\Controllers\ProductController;
+
+Route::resource('products', ProductController::class);
