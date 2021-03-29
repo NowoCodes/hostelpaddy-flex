@@ -26,7 +26,3 @@ require __DIR__ . '/auth.php';
 use App\Http\Controllers\EmailCollectionController;
 
 Route::resource('emails', EmailCollectionController::class);
-
-// Route::get('/', function () {
-//     return view('thanks');
-// });
