@@ -23,8 +23,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmailCollectionController;
 
-Route::resource('products', ProductController::class);
 Route::resource('emails', EmailCollectionController::class);
+
+// Route::get('/', function () {
+//     return view('thanks');
+// });
