@@ -23,16 +23,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/testing', function () {
-    return view('testing');
-});
-
-Route::get('/email', [EmailCollectionController::class, 'create'])
-    ->name('email_collection');
-
-Route::post('/create', [EmailCollectionController::class, 'store']);
-// ->name('email.submit');
-
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmailCollectionController;
 
