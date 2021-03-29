@@ -1,21 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email</title>
-</head>
-<body>
-    <form action="http://localhost:8000/api/mail" method="post">
-        <input type="email" name="email" >
-        <input type="submit" value="Add Email">
-    </form>
-</body>
-</html> --}}
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +13,13 @@
 
 <div class="container">
   <h2>Enter your Email</h2>
-  <form action="">
+  {{-- <form action="{{ route('email') }}" method="POST"> --}}
+    <form action="http://localhost:8000/email/mail" method="POST">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <input type="submit" class="btn btn-primary" value="Submit"></input>
   </form>
 </div>
 
