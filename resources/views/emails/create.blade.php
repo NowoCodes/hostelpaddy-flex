@@ -3,10 +3,10 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+            <div class="float-left">
                 <h2>Add New Email</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-right">
                 <a class="btn btn-primary" href="{{ route('emails.index') }}"> Back</a>
             </div>
         </div>
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Email:</strong>
                     <input type="email" name="email" class="form-control" placeholder="Email">
                 </div>
             </div>

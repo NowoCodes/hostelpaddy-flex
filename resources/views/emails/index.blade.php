@@ -3,10 +3,10 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+            <div class="float-left">
                 <h2>Email Collection</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-right">
                 <a class="btn btn-success" href="{{ route('emails.create') }}">Add Email</a>
             </div>
         </div>
@@ -17,34 +17,34 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
-    <table class="table table-bordered">
+    <?php $i = ''; ?>
+    <table class="table table-borderless table-sm">
         <tr>
             <th>No</th>
             <th>Email</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($emails as $mail)
-        <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $mail->email }}</td>
-            <td>
-                <form action="{{ route('emails.destroy',$mail->id) }}" method="POST">
+            <tr>
+                <td>{{ ++$i }}</td>
+                <td>{{ $mail->email }}</td>
+                <td>
+                    <form action="{{ route('emails.destroy', $mail->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('emails.show',$mail->id) }}">Show</a>
+                        <a class="btn btn-info btn-sm" href="{{ route('emails.show', $mail->id) }}">Show</a>
 
-                    <a class="btn btn-primary" href="{{ route('emails.edit',$mail->id) }}">Edit</a>
+                        <a class="btn btn-primary btn-sm" href="{{ route('emails.edit', $mail->id) }}">Edit</a>
 
-                    @csrf
-                    @method('DELETE')
+                        @csrf
+                        @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
         @endforeach
     </table>
 
-    {!! $emails->links() !!}
+    {{-- {!! $emails->links() !!} --}}
 
 @endsection
