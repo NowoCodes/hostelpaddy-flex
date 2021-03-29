@@ -14,7 +14,7 @@
 <div class="container">
   <h2>Enter your Email</h2>
   {{-- <form action="{{ route('email') }}" method="POST"> --}}
-    <form action="http://localhost:8000/email/mail" method="POST">
+    <form action="/create" method="POST">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
