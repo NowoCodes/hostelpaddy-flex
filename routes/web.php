@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/testing', function () {
 	return view('testing');
+});
+
+Route::get('/email', function () {
+    return view('email');
 });
