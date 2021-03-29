@@ -34,5 +34,7 @@ Route::post('/create', [EmailCollectionController::class, 'store']);
 // ->name('email.submit');
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\EmailCollectionController;
 
 Route::resource('products', ProductController::class);
+Route::resource('emails', EmailCollectionController::class);

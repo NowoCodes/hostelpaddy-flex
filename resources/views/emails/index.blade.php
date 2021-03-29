@@ -7,7 +7,7 @@
                 <h2>Email Collection</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}">Add Email</a>
+                <a class="btn btn-success" href="{{ route('emails.create') }}">Add Email</a>
             </div>
         </div>
     </div>
@@ -24,16 +24,16 @@
             <th>Email</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($products as $product)
+        @foreach ($emails as $mail)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $emails->email }}</td>
+            <td>{{ $mail->email }}</td>
             <td>
-                <form action="{{ route('emails.destroy',$product->id) }}" method="POST">
+                <form action="{{ route('emails.destroy',$mail->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('emails.show',$product->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('emails.show',$mail->id) }}">Show</a>
 
-                    <a class="btn btn-primary" href="{{ route('emails.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('emails.edit',$mail->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
@@ -45,6 +45,6 @@
         @endforeach
     </table>
 
-    {!! $products->links() !!}
+    {!! $emails->links() !!}
 
 @endsection
