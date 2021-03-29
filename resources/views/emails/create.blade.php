@@ -7,7 +7,7 @@
                 <h2>Add New Email</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('emails.index') }}"> Back</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('emails.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
             </div>
         </div>
 

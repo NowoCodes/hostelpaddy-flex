@@ -7,7 +7,7 @@
                 <h2>Email Collection</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-success" href="{{ route('emails.create') }}">Add Email</a>
+                <a class="btn btn-sm btn-success" href="{{ route('emails.create') }}">Add Email</a>
             </div>
         </div>
     </div>
@@ -31,9 +31,6 @@
                 <td>{{ $mail->email }}</td>
                 <td>
                     <form action="{{ route('emails.destroy', $mail->id) }}" method="POST">
-
-                        <a class="btn btn-info btn-sm" href="{{ route('emails.show', $mail->id) }}">Show</a>
-
                         <a class="btn btn-primary btn-sm" href="{{ route('emails.edit', $mail->id) }}">Edit</a>
 
                         @csrf
