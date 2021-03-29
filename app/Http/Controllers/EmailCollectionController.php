@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class EmailCollectionController extends Controller
 {
-    public function index () {
+    public function index()
+    {
         $emails = Email::all();
         return view('emails.index', compact('emails'));
     }
 
-    public function create ()
+    public function create()
     {
         return view('emails.create');
     }
@@ -27,8 +28,31 @@ class EmailCollectionController extends Controller
         Email::create($request->all());
 
         return redirect()->route('emails.index')
-            ->with('success', 'Project created successfully.');
-        // back()->with('post_created', 'Email has been submitted successfully');
-        // return view('email_thanks');
+            ->with('success', 'Email has been submitted successfully');
+    }
+
+    public function edit(Email $email)
+    {
+        return view('emails.edit', compact('email'));
+    }
+
+    public function update(Request $request, Email $email)
+    {
+        $request->validate([
+            'email' => 'required',
+        ]);
+
+        $email->update($request->all());
+
+        return redirect()->route('emails.index')
+            ->with('success', 'Email updated successfully');
+    }
+
+    public function destroy(Email $email)
+    {
+        $email->delete();
+
+        return redirect()->route('emails.index')
+            ->with('success', 'Email deleted successfully');
     }
 }
