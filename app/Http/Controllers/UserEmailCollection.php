@@ -9,7 +9,7 @@ class UserEmailCollection extends Controller
 {
     public function create()
     {
-        return view('clientmail');
+        // return view('clientmail');
     }
 
     public function store(Request $request)
