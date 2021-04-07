@@ -20,6 +20,8 @@ class UserEmailCollection extends Controller
         ]);
         Email::create($request->all());
 
-        return view('thanks');
+        return view('thanks', [
+            'email' => $request->email,
+        ]);
     }
 }
