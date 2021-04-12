@@ -48,8 +48,3 @@ Route::post('/mail', [MailingList::class, 'submit']);
 Route::get('/student', function () {
     return view('students.index');
 })->middleware(['student'])->name('student.index');
-
-// Agents Route
-Route::get('/agent', function () {
-    return view('agents.index');
-})->middleware(['agent'])->name('agent.index');
