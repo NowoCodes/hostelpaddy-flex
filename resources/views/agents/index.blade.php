@@ -9,7 +9,7 @@
         <a href="{{ route('search') }}">Search for your preferred hostel</a>
         <form method="POST" action="{{ route('agent.logout') }}">
             @csrf
-            <a class="float-right" href="{{ route('agent.logout') }}"
+            <a href="{{ route('agent.logout') }}"
                 onclick="event.preventDefault();
                 this.closest('form').submit();">
                 {{ ('Logout') }}
@@ -17,12 +17,12 @@
         </form>
 
         <div class="btn-group btn-group-lg">
-            {{-- <a href="{{ route('viewstudents') }}" role="button" class="btn btn-primary mr-3">Students</a> --}}
-            <a href="" role="button" class="btn btn-primary mr-3">Students</a>
-            <a href="{{ route('viewhostels') }}" role="button" class="btn btn-primary">Hostels</a>
+            <a href="{{ route('agent.students.index') }}" role="button" class="btn btn-primary mr-3" style="height: 200px; width: 200px">Students</a>
+            {{-- <a href="" role="button" class="btn btn-primary mr-3">Students</a> --}}
+            <a href="{{ route('agenthostel.index') }}" role="button" class="btn btn-primary" style="height: 200px; width: 200px">Hostels</a>
           </div>
 
 
-          <script src="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}"></script>
+          <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
     </body>
 </html>
