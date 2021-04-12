@@ -1,7 +1,9 @@
 <?php
+use App\Http\Controllers\MailingList;
+use App\Http\Controllers\SearchController;
 
-use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,22 +16,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('home');
+
+Route::get('/coming-soon', function () {
+    return view('webpages.coming-soon');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/main.php';
 
-use App\Http\Controllers\AdminEmailCollection;
-use App\Http\Controllers\UserEmailCollection;
+require __DIR__.'/auth/auth.php';
 
-Route::resource('emails', AdminEmailCollection::class);
+require __DIR__.'/auth/studentauth.php';
 
-Route::get('/clientmail', [UserEmailCollection::class, 'create'])
-    ->name('clientmail');
+require __DIR__.'/auth/agentauth.php';
 
-Route::post('/clientmail', [UserEmailCollection::class, 'store'])
-    ->name('thanks');
+require __DIR__.'/agents.php';
+
+// Search route
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+// This route is used to collect emails
+Route::get('/mail', [MailingList::class, 'form']);
+Route::post('/mail', [MailingList::class, 'submit']);
+
+// Students Route
+Route::get('/student', function () {
+    return view('students.index');
+})->middleware(['student'])->name('student.index');
