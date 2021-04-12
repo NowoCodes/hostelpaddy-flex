@@ -16,10 +16,10 @@ class SearchController extends Controller
 
         //   search the names in the user's table
         $users= Student::query()
-            ->where('location', 'LIKE', "%{$search}%")
+            ->where('state', 'LIKE', "%{$search}%")
             ->get();
         // return the search view
-        return view('search', compact('users'));
+        return view('webpages.search', compact('users'));
 
     }
 }
