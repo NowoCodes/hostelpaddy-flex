@@ -35,6 +35,8 @@ require __DIR__.'/auth/studentauth.php';
 
 require __DIR__.'/auth/agentauth.php';
 
+require __DIR__.'/agents.php';
+
 // Search route
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
