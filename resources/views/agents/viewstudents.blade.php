@@ -17,9 +17,8 @@
         </form>
 
         <div class="btn-group btn-group-lg">
-            {{-- <a href="{{ route('viewstudents') }}" role="button" class="btn btn-primary mr-3">Students</a> --}}
             <a href="" role="button" class="btn btn-primary mr-3">Students</a>
-            <a href="{{ route('viewhostels') }}" role="button" class="btn btn-primary">Hostels</a>
+            <a href="" role="button" class="btn btn-primary">Hostels</a>
           </div>
 
 
