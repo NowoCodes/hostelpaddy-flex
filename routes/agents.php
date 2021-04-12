@@ -12,10 +12,9 @@ Route::middleware(['agent'])->group(function () {
         
     // });
 
-    // Route::prefix('agent')->name('agent.')->group(function () {
-    //     Route::resource('hostels', AgentHostelController::class);
-        
-    // });
-    Route::resource('agentstudent', AgentStudentController::class);
-    Route::resource('agenthostel', AgentHostelController::class);
+
+    Route::group(['prefix'=>'agents'], function(){
+        Route::resource('students', AgentStudentController::class);
+        Route::resource('hostels', AgentHostelController::class);
+    });
 });
