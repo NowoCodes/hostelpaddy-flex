@@ -9,7 +9,7 @@ class AgentStudentController extends Controller
 {
     public function index()
     {
-        return view('agents.viewstudents');
+        return view('agents.students.index');
     }
 
     public function create()
