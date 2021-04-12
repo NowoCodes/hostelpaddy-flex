@@ -134,7 +134,7 @@
             </select>
 
           <h5 class="mt-2">Upload Hostel Images</h5>
-          <div class="custom-file mb-3" >            
+          <div class="custom-file mb-3" >
             <label class="custom-file-label" for="customFile">Choose file</label>
             <input type="file" class="custom-file-input" id="customFile" name="filename" >
           </div>
@@ -146,14 +146,14 @@
     </div>
   </div>
 
-  <script src="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}"></script>
+  <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
 
 <script>
   $(document).ready(function(){
     $(".mul-select").select2({
       placeholder: "select hostel amenities", //placeholder
       tags: true,
-      tokenSeparators: ['/',',',';'," "] 
+      tokenSeparators: ['/',',',';'," "]
         });
     })
     </script>
