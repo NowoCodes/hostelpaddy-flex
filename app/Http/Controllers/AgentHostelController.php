@@ -9,12 +9,12 @@ class AgentHostelController extends Controller
 {
     public function index()
     {
-        return view('agents.viewhostels');
+        return view('agents.hostels.index');
     }
 
     public function create()
     {
-        //
+        return view('agents.hostels.create');
     }
 
     public function store(Request $request)
