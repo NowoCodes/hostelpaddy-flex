@@ -17,8 +17,8 @@
         </form>
 
         <div class="btn-group btn-group-lg">
-            <a href="{{route('students.index')}}" role="button" class="btn btn-primary mr-3">Students</a>
-            <a href="{{ route('hostels.index') }}" role="button" class="btn btn-primary">Hostels</a>
+            <a href="{{route('agent.students.index')}}" role="button" class="btn btn-primary mr-3">Students</a>
+            <a href="{{ route('agent.hostels.index') }}" role="button" class="btn btn-primary">Hostels</a>
         </div>
 
 

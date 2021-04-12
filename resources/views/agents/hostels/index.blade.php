@@ -20,7 +20,7 @@
 
   <div class="card">
     <div class="card-header">
-      <a href="{{ route('hostels.create') }}" class="float-right btn btn-sm btn-primary">Add New</a>
+      <a href="{{ route('agent.hostels.create') }}" class="float-right btn btn-sm btn-primary">Add New</a>
       <h3 class="mx-auto text-center">Hostel Information</h3>
     </div>
     <div class="card-body">
