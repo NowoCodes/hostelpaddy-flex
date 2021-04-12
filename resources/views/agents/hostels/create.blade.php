@@ -28,7 +28,7 @@
 
   <div class="card mb-3">
     <div class="card-header">
-      <a href="{{ route('agenthostel.index') }}" role="button" class="btn btn-sm btn-primary float-left">Back</a>
+      <a href="{{ route('hostels.index') }}" role="button" class="btn btn-sm btn-primary float-left">Back</a>
       <h3 class="mx-auto text-center">Add Hostel</h3>
 
     </div>
