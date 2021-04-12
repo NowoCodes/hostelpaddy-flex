@@ -25,7 +25,7 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-sm">
+        <table class="table table-sm table-hover">
           <thead>
             <th>S/N</th>
             <th>Hostels</th>
