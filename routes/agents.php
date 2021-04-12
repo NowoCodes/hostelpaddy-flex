@@ -1,11 +1,21 @@
 <?php
-
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\AgentStudentController;
+use App\Http\Controllers\AgentHostelController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/agent/view-students', function () {
-    return view('agents.viewstudents');
-})->name('viewstudents');
+Route::middleware(['agent'])->group(function () {
+    Route::resource('agent', AgentController::class);
+    // Route::prefix('agent')->name('agent.')->group(function () {
+    //     Route::resource('students', AgentStudentController::class)
+    //         ->only(['index', 'show']);
+        
+    // });
 
-Route::get('/agent/view-hostels', function () {
-    return view('agents.viewhostels');
-})->name('viewhostels');
+    // Route::prefix('agent')->name('agent.')->group(function () {
+    //     Route::resource('hostels', AgentHostelController::class);
+        
+    // });
+    Route::resource('agentstudent', AgentStudentController::class);
+    Route::resource('agenthostel', AgentHostelController::class);
+});

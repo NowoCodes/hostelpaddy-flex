@@ -18,8 +18,11 @@
 
         <div class="btn-group btn-group-lg">
             <a href="{{ route('agentstudent.index') }}" role="button" class="btn btn-primary mr-3" style="height: 200px; width: 200px">Students</a>
-            {{-- <a href="" role="button" class="btn btn-primary mr-3">Students</a> --}}
             <a href="{{ route('agenthostel.index') }}" role="button" class="btn btn-primary" style="height: 200px; width: 200px">Hostels</a>
+            
+            {{-- <a href="{{ route('agent.students.index') }}" role="button" class="btn btn-primary mr-3" style="height: 200px; width: 200px">Students</a> --}}
+
+            {{-- <a href="{{ route('agent.hostels.index') }}" role="button" class="btn btn-primary" style="height: 200px; width: 200px">Hostels</a> --}}
           </div>
 
 
