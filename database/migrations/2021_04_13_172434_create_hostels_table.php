@@ -17,13 +17,17 @@ class CreateHostelsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('agent_id')->index();
             $table->string('hostel_name');
-            $table->text('uni_name');
+            $table->string('town');
             $table->string('state');
-            $table->string('city');
             $table->longText('address');
-            $table->double('price', 8, 2);
-            $table->longText('description');
-            $table->text('amenities');
+            $table->string('property');
+            $table->string('RoomNum');
+            $table->text('amount');
+            $table->string('period');
+            $table->text('Amenities');
+            $table->text('utilities');
+            $table->text('rules');
+            $table->longText('tenantType');
             $table->string('image_name');
             $table->timestamps();
 

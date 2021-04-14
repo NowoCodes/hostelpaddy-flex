@@ -41,13 +41,24 @@ class AgentHostelController extends Controller
 
     public function store(HostelRequest $request)
     {
+        $input=$request->all();
+        $AmenitiesToString=implode(',',$request->input(
+            'Amenities'));
+        $input['Amenities'] = $AmenitiesToString;
+        $utilitiesToString=implode(',',$request->input(
+            'utilities'));
+        $input['utilities'] = $utilitiesToString;
+        $rulesToString=implode(',',$request->input(
+            'rules'));
+        $input['rules'] = $rulesToString;
+        
         if (Auth::guard('agent')->check()) {
-            Auth::guard('agent')->user()->hostelFunc()->create($request->validated());
+            Auth::guard('agent')->user()->hostelFunc()->create($input);
             return redirect()->route('agent.hostels.index')
                 ->with('status', 'Hostel Added Successfully');
         } else {
             return redirect()->back()
-                ->with('error', 'A problem occured');
+                ->with('error', 'A problem occurred');
         }
     }
 

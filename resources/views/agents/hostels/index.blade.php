@@ -14,9 +14,13 @@
           <thead>
             <th>S/N</th>
             <th>Hostel Name</th>
-            <th>Description</th>
-            <th>Uni Name</th>
+            <th>Town</th>
+            <th>State</th>
             <th>Price</th>
+            <th>Amenities</th>
+            <th>utilities</th>
+            <th>Rules</th>
+            {{-- <th>TennantType</th> --}}
             <th>Actions</th>
           </thead>
           <tbody>
@@ -26,9 +30,13 @@
                 {{-- display the s/n as id just to know the exact hostel belonging to the agent. we will change it later to normal incremented number (1,2,3,4,5,6) --}}
                 <td>{{ $hostel->id }}</td>
                 <td>{{ $hostel->hostel_name }}</td>
-                <td>{{ $hostel->description }}</td>
-                <td>{{ $hostel->uni_name }}</td>
-                <td>{{ $hostel->price }}</td>
+                <td>{{ $hostel->town }}</td>
+                <td>{{ $hostel->state }}</td>
+                <td>{{ $hostel->amount }}</td>
+                <td>{{ $hostel->Amenities }}</td>
+                <td>{{ $hostel->utilities }}</td>
+                <td>{{ $hostel->rules }}</td>
+                {{-- <td>{{ $hostel->tenantType }}</td> --}}
                 <td>
                   <a href="{{ route('agent.hostels.show', [$hostel]) }}" class="btn btn-sm btn-secondary">Show</a>
                   <a href="{{ route('agent.hostels.edit', [$hostel]) }}" class="btn btn-sm btn-secondary">Edit</a>

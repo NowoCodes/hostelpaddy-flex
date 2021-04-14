@@ -1,77 +1,111 @@
 <div class="form-group">
-  <label for="h_name">Hostel Name</label>
+  <label for="h_name">Property information</label>
   <input type="text" class="form-control" id="h_name" name="hostel_name" placeholder="Type your hostel name here"
     value="{{ old('hostel_name', $hostel->hostel_name) }}">
 </div>
+
 <div class="form-group">
-  <label for="hostelname">University Name</label>
-  <select id="uni_name" name="uni_name" class="form-control">
-    <option value="">Select your university name</option>
-    @foreach ($university as $universities)
-      <option value="{{ $universities->id }}"
-        {{ $universities->id == old('uni_name', $hostel->uni_name) ? 'selected' : '' }}>
-        {{ $universities->university }}</option>
-    @endforeach
+  <label for="state">Location/town</label>
+  <select class="form-control" id="state" name="town">
+    <option value="Ilorin">Ilorin</option>
+    <option value="Ikeja">Ikeja</option>
+    <option value="Minna">Minna</option>
+    
   </select>
 </div>
 
+<div class="form-group">
+  <label for="state">Location/states</label>
+  <select class="form-control" id="state" name="state">
+    <option value="Kwara">Kwara</option>
+    <option value="Lagos">Lagos</option>
+    <option value="Niger">Niger</option>
+  </select>
+  </div>
+
+<div class="form-group">
+  <label for="fullAdd"></label>
+  <input type="text" name="address" placeholder="full address" id="fullAdd" class="form-control">
+</div>
+
+<h5>Choose property type</h5>
+<div class="form-check">
+  <div class="round">
+    <input type="radio" name="property" id="flat" > Flats 
+    <input type="radio" name="property" id="detached" > Detached <br>
+    <input type="radio" name="property" id="duplex" > Duplex
+    <input type="radio" name="property" id="bungalow" > Bungalow
+  </div>
+</div>
+<div class="form-group">
+  <label for="RoomNum"><h5>Number of rooms</h5></label>
+  <select class="form-control" id="RoomNum" name="RoomNum">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    
+  </select>
+</div>
+
+<h5>Hostel fee</h5>
 <div class="row">
-  <div class="col-6">
+  <div class="col-4">
     <div class="form-group">
-      <label for="state">State</label>
-      <select class="form-control" id="state" name="state">
-        <option value="">Select one</option>
-        @foreach ($state as $states)
-          <option value="{{ $states->id }}" {{ $states->id == old('state', $hostel->state) ? 'selected' : '' }}>
-            {{ $states->state }}</option>
-        @endforeach
+      <input type="text" name="amount" class="form-control">
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="form-group">
+
+      <select class="form-control" id="peroid" name="period">
+        <option value="yearly" selected>Yearly</option>
+        <option value="monthly">Monthly</option>
+        <option value="two-years">2-years</option>
+        
       </select>
     </div>
-
-    <div class="form-group">
-      <label for="address">Hostel Address</label>
-      <input type="text" class="form-control" id="address" name="address" placeholder="What’s your hostel address"
-        value="{{ old('address', $hostel->address) }}">
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="form-group">
-      <label for="city">City or Town</label>
-      <input type="text" class="form-control" id="city" name="city" placeholder="Enter city or town"
-        value="{{ old('city', $hostel->city) }}">
-    </div>
-    <div class="form-group">
-      <label for="price">Hostel Price</label>
-      <input type="number" class="form-control" id="price" name="price" placeholder="₦250,000"
-        value="{{ old('price', $hostel->price) }}">
-    </div>
   </div>
 </div>
 
-<div class="form-group">
-  <label for="description">Hostel Description</label>
-  <textarea class="form-control" name="description" id="description"
-    placeholder="Tell us more about your hostel">{{ old('description', $hostel->description) }}</textarea>
+<h5>Amenities</h5>
+<p>Select your property features</p>
+<div class="form-check">
+  <input type="checkbox" name="Amenities[]" id="Bedroom" value="Bedroom"> Bedroom
+  <input type="checkbox" name="Amenities[]" id="Bathroom" value="Bathroom"> Bathroom<br>
+  <input type="checkbox" name="Amenities[]" id="Dining" value="Dining"> Dining
+  <input type="checkbox" name="Amenities[]" id="Wardrobe" value="Wardrobe"> Wardrobe <br>
+  <input type="checkbox" name="Amenities[]" id="Kitchen" value="Kichen"> Kitchen
+  <input type="checkbox" name="Amenities[]" id="Living area" value="Living area"> Living area
 </div>
 
-<h5>Hostel Amenities</h5>
-<label for="amenities">Select your hostel amenities below</label>
-<div class="form-group">
-  {{-- <select class="form-control mul-select" multiple="true" id="amenities" name="amenities[]"> --}}
-  {{-- Having problems with passing arrays into a table colum hence commenting the above line --}}
-  <select class="form-control" id="amenities" name="amenities">
-    <option value="">Select Amenities</option>
-    @foreach ($amenity as $amenities)
-      <option value="{{ $amenities->id }}"
-        {{ $amenities->id == old('amenities', $hostel->amenities) ? 'selected' : '' }}>{{ $amenities->amenity }}
-      </option>
-    @endforeach
-  </select>
+<br>
+<p>Select your property utilities</p>
+<div class="form-check">
+  <input type="checkbox" value="Electricity" name="utilities[]" id="Electricity" > Electricity
+  <input type="checkbox" value="Car park" name="utilities[]" id="Carpark"> Car park<br>
+  <input type="checkbox" value="Water" name="utilities[]" id="Water"> Water
+  <input type="checkbox" value="Security" name="utilities[]" id="Security"> Security<br>
+  <input type="checkbox" value="wifi" name="utilities[]" id="Wifi"> Wifi
+</div>
 
+<h5>Hotel rules</h5>
+<p>Select hostel rules</p>
+<div class="form-check">
+  <input type="checkbox" value="Smoking" name="rules[]" id="Smoking" > Smoking
+  <input type="checkbox" value="Overnight guest" name="rules[]" id="Overnight guest"> Overnight guest<br>
+  <input type="checkbox" value="Pets" name="rules[]" id="pets"> pets
+  <input type="checkbox" value="Children" name="rules[]" id="Children"> Children<br>
+  <input type="checkbox" value="Events" name="rules[]" id="Events"> Events
+</div>
+
+<div class="form-group">
+  <h5>Preferred Tenants</h5>
+  <input type="text" class="form-control" name="tenantType" placeholder="preferred tenants">
+</div>
   <h5 class="mt-2">Upload Hostel Images</h5>
-  <div class="custom-file mb-3">
-    <label class="custom-file-label" for="image_name">Choose file</label>
-    <input type="file" class="custom-file-input" id="image_name" name="image_name"
-      value="{{ old('image_name', $hostel->image_name) }}">
-  </div>
+<div class="custom-file mb-3">
+  <label class="custom-file-label" for="image_name">Choose file</label>
+  <input type="file" class="custom-file-input" id="image_name" name="image_name"
+    value="{{ old('image_name', $hostel->image_name) }}">
 </div>
+
