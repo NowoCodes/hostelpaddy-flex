@@ -23,8 +23,9 @@
             {{-- Fetch data from hostels table --}}
             @foreach ($hostels as $hostel)
               <tr>
+                {{-- display the s/n as id just to know the exact hostel belonging to the agent. we will change it later to normal incremented number (1,2,3,4,5,6) --}}
                 <td>{{ $hostel->id }}</td>
-                <td>{{ $hostel->h_name }}</td>
+                <td>{{ $hostel->hostel_name }}</td>
                 <td>{{ $hostel->description }}</td>
                 <td>{{ $hostel->uni_name }}</td>
                 <td>{{ $hostel->price }}</td>
