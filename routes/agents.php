@@ -9,7 +9,6 @@ Route::middleware(['agent'])->group(function () {
     // Route::prefix('agent')->name('agent.')->group(function () {
     //     Route::resource('students', AgentStudentController::class)
     //         ->only(['index', 'show']);
-        
     // });
 
 
