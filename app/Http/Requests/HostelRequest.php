@@ -25,13 +25,16 @@ class HostelRequest extends FormRequest
     {
         return [
             'hostel_name' => 'required',
-            'uni_name' => 'required',
+            'town' => 'required',
             'state' => 'required',
-            'city' => 'required',
             'address' => 'required',
-            'price' => 'required',
-            'description' => 'required',
-            'amenities' => 'required',
+            'property' => 'required',
+            'amount' => 'required',
+            'period' => 'required',
+            'Amenities' => 'required',
+            'utilities' => 'required',
+            'rules' => 'required',
+            'tenantType' => 'required',
             'image_name' => 'required',
         ];
     }

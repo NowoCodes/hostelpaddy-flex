@@ -10,9 +10,10 @@ class Hostel extends Model
     use HasFactory;
 
     protected $fillable = [
-        'hostel_name', 'uni_name', 'state',
-        'city', 'address', 'price',
-        'description', 'amenities', 'image_name',
+        'hostel_name', 'town', 'state',
+        'address', 'property', 'RoomNum',
+        'amount', 'period','Amenities', 'utilities',
+        'rules','tenantType','image_name',
     ];
 
     public function agentFunc() {

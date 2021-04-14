@@ -62,7 +62,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('student.login') }}">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('agent.login') }}">
                     {{ __('Already registered?') }}
                 </a>
 

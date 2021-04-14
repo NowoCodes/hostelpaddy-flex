@@ -14,7 +14,7 @@
         <li>State: {{ $hostel->state }}</li>
         <li>City: {{ $hostel->city }}</li>
         <li>Address: {{ $hostel->address }}</li>
-        <li>Price: {{ $hostel->price }}</li>
+        <li>Amount: {{ $hostel->amount }}</li>
         <li>Description: {{ $hostel->description }}</li>
         <li>Amenities: {{ $hostel->amenities }}</li>
         <li>Image: {{ $hostel->image_name }}</li>
