@@ -1,22 +1,7 @@
-<html>
+@extends('agents.hostels.app')
 
-<head>
-  <link rel="stylesheet" href="{{ asset('main/vendor/bootstrap/css/bootstrap.min.css') }}">
-</head>
-
-<body class="container mt-5">
-
-  <h1>Hello {{ Auth::guard('agent')->user()->name }}</h1>
-  <a href="{{ route('search') }}">Search for your preferred hostel</a>
-  <form method="POST" action="{{ route('agent.logout') }}">
-    @csrf
-    <a href="{{ route('agent.logout') }}" onclick="event.preventDefault();
-                this.closest('form').submit();">
-      {{ 'Logout' }}
-    </a>
-  </form>
-
-    <a href="{{ route('agent.index') }}" role="button" class="btn btn-primary btn-sm mb-2">Back</a>
+@section('content')
+  <a href="{{ route('agent.index') }}" role="button" class="btn btn-primary btn-sm mb-2">Back</a>
 
   <div class="card">
     <div class="card-header">
@@ -28,30 +13,40 @@
         <table class="table table-sm table-hover">
           <thead>
             <th>S/N</th>
-            <th>Hostels</th>
+            <th>Hostel Name</th>
+            <th>Description</th>
+            <th>Uni Name</th>
+            <th>Price</th>
             <th>Actions</th>
           </thead>
           <tbody>
-            @for ($i = 1; $i <= 10; $i++)
+            {{-- Fetch data from hostels table --}}
+            @foreach ($hostels as $hostel)
               <tr>
-                <td>{{ $i }}</td>
-                <td>ParkView Hostels</td>
+                <td>{{ $hostel->id }}</td>
+                <td>{{ $hostel->h_name }}</td>
+                <td>{{ $hostel->description }}</td>
+                <td>{{ $hostel->uni_name }}</td>
+                <td>{{ $hostel->price }}</td>
                 <td>
-                  <a href="#" class="btn btn-sm btn-secondary">Show</a>
-                  <a href="#" class="btn btn-sm btn-secondary">Edit</a>
-                  <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                  <a href="{{ route('agent.hostels.show', [$hostel]) }}" class="btn btn-sm btn-secondary">Show</a>
+                  <a href="{{ route('agent.hostels.edit', [$hostel]) }}" class="btn btn-sm btn-secondary">Edit</a>
+
+                  <form action="{{ route('agent.hostels.destroy', [$hostel]) }}" method="POST" class="d-inline-flex">
+                    @csrf
+                    @method('DELETE')
+
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                  </form>
                 </td>
               </tr>
-            @endfor
+            @endforeach
           </tbody>
         </table>
+
+        {{-- Show Pagination --}}
+        {{ $hostels->links() }}
       </div>
     </div>
   </div>
-
-
-
-  <script src="{{ asset('main/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-</body>
-
-</html>
+@endsection
