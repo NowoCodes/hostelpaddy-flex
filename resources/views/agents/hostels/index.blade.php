@@ -17,10 +17,10 @@
             <th>Town</th>
             <th>State</th>
             <th>Price</th>
-            <th>Amenities</th>
+            {{-- <th>Amenities</th> --}}
             <th>utilities</th>
-            <th>Rules</th>
-            {{-- <th>TennantType</th> --}}
+            {{-- <th>Rules</th> --}}
+            <th>TennantType</th>
             <th>Actions</th>
           </thead>
           <tbody>
@@ -33,10 +33,10 @@
                 <td>{{ $hostel->town }}</td>
                 <td>{{ $hostel->state }}</td>
                 <td>{{ $hostel->amount }}</td>
-                <td>{{ $hostel->Amenities }}</td>
+                {{-- <td>{{ $hostel->amenities }}</td> --}}
                 <td>{{ $hostel->utilities }}</td>
-                <td>{{ $hostel->rules }}</td>
-                {{-- <td>{{ $hostel->tenantType }}</td> --}}
+                {{-- <td>{{ $hostel->rules }}</td> --}}
+                <td>{{ $hostel->tenantType }}</td>
                 <td>
                   <a href="{{ route('agent.hostels.show', [$hostel]) }}" class="btn btn-sm btn-secondary">Show</a>
                   <a href="{{ route('agent.hostels.edit', [$hostel]) }}" class="btn btn-sm btn-secondary">Edit</a>
