@@ -19,7 +19,7 @@ class AgentHostelController extends Controller
 
     public function index(Agent $agent)
     {
-        // fetch hostels from table 
+        // fetch hostels from table
         $hostels = Hostel::where('agent_id', Auth::guard('agent')->user()->id)
             ->orderBy('id', 'ASC')
             ->Paginate(10);
@@ -30,28 +30,29 @@ class AgentHostelController extends Controller
     {
         $hostel = new Hostel;
         // fetch amenities, state, university from db
-        $amenity = DB::select('SELECT * FROM amenities');
-        $state = DB::select('SELECT * FROM states');
-        $university = DB::select('SELECT * FROM universities');
-        return view(
-            'agents.hostels.create',
-            compact('hostel', 'amenity', 'state', 'university'),
+        // $amenity = DB::select('SELECT * FROM amenities');
+        // $state = DB::select('SELECT * FROM states');
+        // $university = DB::select('SELECT * FROM universities');
+        return view('agents.hostels.create',
+            compact('hostel',
+            // 'amenity', 'state', 'university'
+        ),
         );
     }
 
     public function store(HostelRequest $request)
     {
-        $input=$request->all();
+        $input=$request->validated();
         $AmenitiesToString=implode(',',$request->input(
-            'Amenities'));
-        $input['Amenities'] = $AmenitiesToString;
+            'amenities'));
+        $input['amenities'] = $AmenitiesToString;
         $utilitiesToString=implode(',',$request->input(
             'utilities'));
         $input['utilities'] = $utilitiesToString;
         $rulesToString=implode(',',$request->input(
             'rules'));
         $input['rules'] = $rulesToString;
-        
+
         if (Auth::guard('agent')->check()) {
             Auth::guard('agent')->user()->hostelFunc()->create($input);
             return redirect()->route('agent.hostels.index')
@@ -70,13 +71,15 @@ class AgentHostelController extends Controller
     public function edit(Hostel $hostel, Agent $agent)
     {
         // fetch amenities, state, university from db
-        $amenity = DB::select('SELECT * FROM amenities');
-        $state = DB::select('SELECT * FROM states');
-        $university = DB::select('SELECT * FROM universities');
+        // $amenity = DB::select('SELECT * FROM amenities');
+        // $state = DB::select('SELECT * FROM states');
+        // $university = DB::select('SELECT * FROM universities');
 
-        return view(
-            'agents.hostels.edit',
-            compact('hostel', 'amenity', 'state', 'university')
+        return view('agents.hostels.edit',
+            compact('hostel',
+            // 'amenity', 'state', 'university'
+            )
+
         );
     }
 
