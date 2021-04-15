@@ -21,10 +21,10 @@ class CreateHostelsTable extends Migration
             $table->string('state');
             $table->longText('address');
             $table->string('property');
-            $table->string('RoomNum');
-            $table->text('amount');
+            $table->string('roomNum');
+            $table->int('amount');
             $table->string('period');
-            $table->text('Amenities');
+            $table->text('amenities');
             $table->text('utilities');
             $table->text('rules');
             $table->longText('tenantType');

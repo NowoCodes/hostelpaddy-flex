@@ -11,8 +11,8 @@ class Hostel extends Model
 
     protected $fillable = [
         'hostel_name', 'town', 'state',
-        'address', 'property', 'RoomNum',
-        'amount', 'period','Amenities', 'utilities',
+        'address', 'property', 'roomNum',
+        'amount', 'period','amenities', 'utilities',
         'rules','tenantType','image_name',
     ];
 
