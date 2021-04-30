@@ -23,8 +23,7 @@ class CreateHostelsTable extends Migration
             $table->longText('address');
             $table->double('price', 8, 2);
             $table->longText('description');
-            $table->text('amenities');
-            $table->string('image_name');
+            $table->string('image_name')->nullable();
             $table->timestamps();
 
             $table->foreign('agent_id')
