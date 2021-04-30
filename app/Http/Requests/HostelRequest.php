@@ -31,8 +31,8 @@ class HostelRequest extends FormRequest
             'address' => 'required',
             'price' => 'required',
             'description' => 'required',
-            'amenities' => 'required',
-            'image_name' => 'required',
+            // 'amenities' => 'required',
+            'image_name' => 'sometimes',
         ];
     }
 }
