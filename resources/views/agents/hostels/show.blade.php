@@ -16,8 +16,17 @@
         <li>Address: {{ $hostel->address }}</li>
         <li>Price: {{ $hostel->price }}</li>
         <li>Description: {{ $hostel->description }}</li>
-        <li>Amenities: {{ $hostel->amenities }}</li>
+        <li>Amenities: 
+            @foreach ($hostel->amenities as $amenity)
+            {{ $amenity->name }}
+            @endforeach
+        </li>
         <li>Image: {{ $hostel->image_name }}</li>
+        <li>Tags:
+            @foreach ($hostel->tags as $tag)
+                {{ $tag->name }}
+            @endforeach
+        </li>
       </ul>
     </div>
   </div>
