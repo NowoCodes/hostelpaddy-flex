@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use App\Models\Hostel;
+use App\Models\Amenity;
 use App\Http\Requests\HostelRequest;
+use App\Models\Tag;
+use App\Models\Tags;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +22,7 @@ class AgentHostelController extends Controller
 
     public function index(Agent $agent)
     {
-        // fetch hostels from table 
+        // fetch hostels from table
         $hostels = Hostel::where('agent_id', Auth::guard('agent')->user()->id)
             ->orderBy('id', 'ASC')
             ->Paginate(10);
@@ -30,19 +33,24 @@ class AgentHostelController extends Controller
     {
         $hostel = new Hostel;
         // fetch amenities, state, university from db
-        $amenity = DB::select('SELECT * FROM amenities');
+        $amenities = Amenity::get();
+        $tags = Tag::get();
         $state = DB::select('SELECT * FROM states');
         $university = DB::select('SELECT * FROM universities');
         return view(
             'agents.hostels.create',
-            compact('hostel', 'amenity', 'state', 'university'),
+            compact('hostel', 'amenities', 'state', 'university', 'tags'),
         );
     }
 
     public function store(HostelRequest $request)
     {
         if (Auth::guard('agent')->check()) {
-            Auth::guard('agent')->user()->hostelFunc()->create($request->validated());
+            $hostel = Auth::guard('agent')->user()->hostelFunc()->create($request->validated());
+
+            $hostel->amenities()->sync($request->amenities);
+            $hostel->tags()->sync($request->tags);
+
             return redirect()->route('agent.hostels.index')
                 ->with('status', 'Hostel Added Successfully');
         } else {
@@ -53,25 +61,30 @@ class AgentHostelController extends Controller
 
     public function show(Hostel $hostel)
     {
+        dd($hostel);
         return view('agents.hostels.show', compact('hostel'));
     }
 
     public function edit(Hostel $hostel, Agent $agent)
     {
         // fetch amenities, state, university from db
-        $amenity = DB::select('SELECT * FROM amenities');
+        $amenities = Amenity::get();
+        $tags = Tag::get();
         $state = DB::select('SELECT * FROM states');
         $university = DB::select('SELECT * FROM universities');
 
         return view(
             'agents.hostels.edit',
-            compact('hostel', 'amenity', 'state', 'university')
+            compact('hostel', 'amenities', 'state', 'university', 'tags')
         );
     }
 
     public function update(HostelRequest $request, Hostel $hostel)
     {
         $hostel->update($request->validated());
+        $hostel->amenities()->sync($request->amenities);
+        $hostel->tags()->sync($request->tags);
+
         return redirect()->route('agent.hostels.index')
             ->with('success', 'Hostel Updated Successfully');
     }
