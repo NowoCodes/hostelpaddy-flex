@@ -57,16 +57,26 @@
 <h5>Hostel Amenities</h5>
 <label for="amenities">Select your hostel amenities below</label>
 <div class="form-group">
-  {{-- <select class="form-control mul-select" multiple="true" id="amenities" name="amenities[]"> --}}
+  <select class="form-control mul-select" multiple="true" id="amenities" name="amenities[]">
   {{-- Having problems with passing arrays into a table colum hence commenting the above line --}}
-  <select class="form-control" id="amenities" name="amenities">
+  {{-- <select class="form-control" id="amenities" name="amenities"> --}}
     <option value="">Select Amenities</option>
-    @foreach ($amenity as $amenities)
-      <option value="{{ $amenities->id }}"
-        {{ $amenities->id == old('amenities', $hostel->amenities) ? 'selected' : '' }}>{{ $amenities->amenity }}
+    @foreach ($amenities as $amenity)
+      <option value="{{ $amenity->id }}"
+        {{ in_array($amenity->id, old('amenities', $hostel->amenities->pluck('id')->toArray())) ? 'selected' : '' }}>{{ $amenity->name }}
+
       </option>
     @endforeach
   </select>
+
+<div class="mb-3">
+    @foreach ($tags as $tag)
+        <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" name="tags[]" value="{{ $tag->id }}" {{ in_array($tag->id, old('tags', $hostel->tags->pluck('id')->toArray())) ? 'checked' : '' }}>
+            <label class="form-check-label" for="">{{ $tag->name }}</label>
+        </div>
+    @endforeach
+</div>
 
   <h5 class="mt-2">Upload Hostel Images</h5>
   <div class="custom-file mb-3">
