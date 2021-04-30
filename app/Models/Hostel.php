@@ -18,4 +18,12 @@ class Hostel extends Model
     public function agentFunc() {
         return $this->belongsTo(Agent::class);
     }
+
+    public function amenities() {
+        return $this->belongsToMany(Amenity::class);
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 }
